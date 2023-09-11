@@ -15,7 +15,7 @@ dp = Dispatcher()
 
 @dp.message(Command("start"))
 async def start(message: types.Message):
-    # await message.reply("Привет")
+
     await message.answer("Привет")
 
 @dp.message(Command("photo"))
