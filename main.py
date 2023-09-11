@@ -4,6 +4,8 @@ from os import getenv
 import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
+import os
+import random
 
 load_dotenv()
 token = getenv("BOT_TOKEN")
@@ -19,7 +21,8 @@ async def start(message: types.Message):
 @dp.message(Command("photo"))
 async def send_random_picture(message: types.Message):
     images_folder = "images/"
-    images = [f for f in listdir(images_folder) if f.endswith((".jpg", ".jpeg", ".png"))]
+    images = [f for f in os.listdir(images_folder) if f.endswith((".jpg", ".jpeg", ".png"))]
+
     if images:
         random_image = random.choice(images)
         file = types.FSInputFile(images_folder + random_image)
