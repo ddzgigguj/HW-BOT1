@@ -2,11 +2,12 @@ import asyncio
 import logging
 from bot import bot, dp
 from handlers import (
-    start_router, echo_router
+    start_router, echo_router, shop_router
 )
 
 async def main():
     dp.include_router(start_router)
+    dp.include_router(shop_router)
     dp.include_router(echo_router)
     await dp.start_polling(bot)
 
