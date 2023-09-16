@@ -12,11 +12,11 @@ token = getenv("BOT_TOKEN")
 bot = Bot(token=token)
 dp = Dispatcher()
 
-
 @dp.message(Command("start"))
 async def start(message: types.Message):
 
     await message.answer("Привет")
+
 
 @dp.message(Command("photo"))
 async def send_random_picture(message: types.Message):
