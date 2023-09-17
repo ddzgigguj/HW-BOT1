@@ -21,3 +21,4 @@ async def shop(message: types.Message):
 async def show_manga(message: types.Message):
     kb = ReplyKeyboardRemove()
     await message.answer("Список манги в нашем магазине:",reply_markup=kb)
+

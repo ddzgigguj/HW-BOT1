@@ -11,8 +11,8 @@ start_router = Router()
 async def start(message: types.Message):
     kb = InlineKeyboardMarkup(
         inline_keyboard=[
-            [IButton(text="Наш сайт", url="https://google.com"),
-             IButton(text="Наш сайт", url="https://instagram.com"),
+            [IButton(text="Наш сайт", url="https://t.me/xxxremuru"),
+             IButton(text="Наш сайт", url="https://t.me/xxxremuru"),
             ],
             [
                 IButton(text="О нас", callback_data="about")
