@@ -7,3 +7,4 @@ load_dotenv()
 token = getenv("BOT_TOKEN")
 bot = Bot(token=token)
 dp = Dispatcher()
+
