@@ -19,8 +19,8 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS product (
             productId INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
-            price FLOAT,
-            picture TEXT
+            price FLOAT
+
         )
         """
     )
@@ -30,21 +30,20 @@ def create_tables():
 def populate_tables():
     cursor.execute(
         """
-        INSERT INTO product (name, price, picture)
-        VALUES ('Гарри Потер', 2000.0, 'images/nom1.jpeg'),
-                ('python', 3000.0, 'images/nom2.jpeg'),
-                ('48 законов жизни', 4000.0, 'images/nom3.jpeg'),
-                ('Герой нашего времени', 5000.0, 'images/nom4.jpg')
+        INSERT INTO product (name, price)
+        VALUES  ('Лист', 25.0),
+                ('Кисть', 19.0),
+                ('Картина', 26.0)
         """
     )
     db.commit()
 
 
-def get_products():
-    cursor.execute(
-        """
-        SELECT * FROM product
-        """
+def get_product():
+    product = cursor.execute(
+        '''
+        SELECT * FROM product 
+        '''
     )
     return cursor.fetchall()
 

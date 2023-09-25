@@ -1,49 +1,36 @@
 from aiogram import types, Router, F
 from aiogram.filters import Command
 from aiogram.types.inline_keyboard_button import InlineKeyboardButton as IButton
-from  aiogram.types.inline_keyboard_markup import InlineKeyboardMarkup
-import random
-import os
+from aiogram.types.inline_keyboard_markup import InlineKeyboardMarkup
+from text1 import START_TEXT
+from text2 import BUTTON_TEXT
+
 
 start_router = Router()
 
 @start_router.message(Command("start"))
-async def start(message: types.Message):
+async def hello(message: types.Message):
     kb = InlineKeyboardMarkup(
         inline_keyboard=[
-            [IButton(text="Наш сайт", url="https://t.me/xxxremuru"),
-             IButton(text="Наш сайт", url="https://t.me/xxxremuru"),
-            ],
             [
-                IButton(text="О нас", callback_data="about")
-            ]
-        ]
+               IButton(text="Контакты", callback_data="contacts"),
+               IButton(text="О нас", callback_data="about"),
+               IButton(text="Наш сайт", url="https://google.com"),
+            ],
+       ]
     )
-    await message.answer("Привет, друзья", reply_markup=kb)
+    await message.answer(START_TEXT, reply_markup=kb)
+
 
 @start_router.callback_query(F.data == "about")
 async def about(callback: types.CallbackQuery):
-    await  callback.answer()
-    await callback.message.answer("О нас")
+    await callback.answer()
 
-@start_router.message(Command("photo"))
-async def send_random_picture(message: types.Message):
-    images_folder = "images/"
-    images = [f for f in os.listdir(images_folder) if f.endswith((".jpg", ".jpeg", ".png"))]
-
-    if images:
-        random_image = random.choice(images)
-        file = types.FSInputFile(images_folder + random_image)
-        await message.answer_photo(file)
-    else:
-        await message.answer("В папке с картинками нет подходящих файлов.")
+    await callback.message.answer(BUTTON_TEXT)
 
 
-@start_router.message(Command("myinfo"))
-async def my_info(message: types.Message):
-    user_id = message.from_user.id
-    first_name = message.from_user.first_name
-    username = message.from_user.username
+@start_router.callback_query(F.data == "contacts")
+async def about(callback: types.CallbackQuery):
+    await callback.answer()
 
-    info_message = f"Ваш ID: {user_id}\nИмя: {first_name}\nUsername: @{username}"
-    await message.answer(info_message)
+    await callback.message.answer("911")
