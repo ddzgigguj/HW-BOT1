@@ -6,7 +6,7 @@ from handlers.picture import picture_router
 from handlers.shop import shop_router
 from bot import bot, dp
 from handlers.questions import questions_router
-from db.queries import init_db, create_tables, populate_tables, get_product
+from db.queries import init_db, create_tables, populate_tables, get_products
 from aiogram.types import BotCommand
 
 
