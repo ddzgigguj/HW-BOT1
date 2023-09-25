@@ -24,12 +24,12 @@ async def show_manga(message: types.Message):
     await message.answer("Список манги в нашем магазине:",reply_markup=kb)
 @shop_router.message(F.text == "Купить ручку")
 async def show_frukt(message: types.Message):
-    await message.answer(get_product()[0][1])
+    await message.answer(get_products()[0][1])
 
 @shop_router.message(F.text == "Купить карандаши")
 async def show_frukt(message: types.Message):
-    await message.answer(get_product()[1][1])
+    await message.answer(get_products()[1][1])
 @shop_router.message(F.text == "Купить блокнот")
 async def show_frukt(message: types.Message):
-    await message.answer(get_product()[2][1])
+    await message.answer(get_products()[2][1])
 

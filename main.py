@@ -18,7 +18,7 @@ async def main():
             BotCommand(command="start", description="Начало"),
             BotCommand(command="info", description="Получи инфромацию о себе"),
             BotCommand(command="shop", description="Наш магазин"),
-            BotCommand(command="pic", description="Получить картинку"),
+            BotCommand(command="photo", description="Получить картинку"),
         ]
     )
 

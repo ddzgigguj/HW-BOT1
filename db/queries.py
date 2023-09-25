@@ -31,10 +31,10 @@ def populate_tables():
     cursor.execute(
         """
         INSERT INTO product (name, price, picture)
-        VALUES ('Гарри Потер', 2000.0, '/images/nom1.jpeg'),
-                ('python', 3000.0, '/images/nom2.jpeg'),
-                ('48 законов жизни', 4000.0, '/images/nom3.jpeg'),
-                ('Герой нашего времени', 5000.0, '/images/nom4.jpg')
+        VALUES ('Гарри Потер', 2000.0, 'images/nom1.jpeg'),
+                ('python', 3000.0, 'images/nom2.jpeg'),
+                ('48 законов жизни', 4000.0, 'images/nom3.jpeg'),
+                ('Герой нашего времени', 5000.0, 'images/nom4.jpg')
         """
     )
     db.commit()
